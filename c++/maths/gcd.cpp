@@ -15,3 +15,5 @@ public:
             return a;
       }
 };
+
+// sol : (a,a%b) 
