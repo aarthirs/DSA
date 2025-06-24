@@ -1,39 +1,23 @@
 class LeftRightSumDifferences {
 public:
      vector<int> solve(vector<int> input) {
-          vector<int> result;
-         
-          for(int i=0;i<=input.size()-1;i++){
-             auto idx=0; 
-             auto index= find(input.begin(),input.end(),input[i]);
-             if(index !=input.end()){
-                 idx= index - input.begin();  
-             }
-             cout<<idx;
-             if(idx==0){
-               int rightSum =0 ;
-               for(int i=1;i<=input.size()-1;i++){
-                    rightSum+= input[i];
-               }
-               result.push_back(rightSum);
-             }
-             else{
-               int rightSum=0;
-               int leftSum=0;
-               int totalSum=0;
-               for(int i=idx+1;i<=input.size()-1;i++){
-                    rightSum+=input[i];
-               }
-               for(int i=idx-1;i>=0;i--){
-                    leftSum+=input[i];
-               }
-               totalSum= abs(leftSum-rightSum);
-               result.push_back(totalSum);
-             }
+		vector<int> lsum , res; 
+          int sum=0;
 
+          for(int i=0;i<input.size();i++){
+               lsum.push_back(sum);
+               sum+=input[i];
+          }
+          sum=0;
+          vector<int> rsum(input.size(), 0); // adding inputsize and initalize this as zero is important bc by this only we can able append this rsum 
+          for(int i=input.size()-1;i>=0;i--){
+               rsum[i]=sum ;
+               sum+=input[i];
           }
 
-          return result;
-		
+          for(int i=0;i<input.size();i++){
+               res.push_back(abs(lsum[i]-rsum[i]));
+          }
+          return res;
      }
 };
