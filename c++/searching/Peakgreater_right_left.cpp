@@ -17,3 +17,9 @@ public:
           return 1e9+7;
      }
 };
+
+/*
+Bigger on the left? Move left (right = mid - 1).
+
+Bigger on the right? Move right (left = mid + 1).
+*/
