@@ -23,3 +23,18 @@ public:
         return ans;
     }
 };
+
+/*
+Here we using the concept of sliding window :
+
+window : contiguous block of the array that we’re focusing on at the moment. 
+for creating these block we'll ocunt the good ;
+from the good slide -- count the bad >k 
+Array:  [2, 1, 5, 6, 3]
+k = 3
+good = 3
+
+Start →  [2, 1, 5]  6   3   → bad = 1
+Slide →   2 [1, 5, 6] 3   → bad = 2
+Slide →   2 1 [5, 6, 3]   → bad = 2
+*/
