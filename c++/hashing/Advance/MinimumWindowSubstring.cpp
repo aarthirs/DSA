@@ -16,8 +16,8 @@ public:
                         }
                        
 
-                        freqT[s[left]]++; // srinking the window 
-                        if(freqT[s[left]]>0) required++; // incase within this range value is not there then inc
+                        freqT[s[left]]++; // shrinking the window 
+                        if(freqT[s[left]]>0) required++; // we have made all char as 0 and come here by left++ it got inc so stop shrinking and expand again
                         left++;
                   }
 
@@ -25,3 +25,9 @@ public:
             return minlen==INT_MIN ?"":s.substr(start, minlen);
       }
 };
+/*
+We’re removing the leftmost character.
+If that makes the window lose a needed character,
+mark the window as invalid again,
+and stop shrinking any further
+*/
